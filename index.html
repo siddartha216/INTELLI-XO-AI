@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="menu" class="screen active">
+    <h1>🎮 Tic Tac Toe</h1>
+
+    <input type="text" id="playerName" placeholder="Enter your name">
+
+    <div class="buttons">
+        <button onclick="startGame('easy')">Easy</button>
+        <button onclick="startGame('medium')">Medium</button>
+        <button onclick="startGame('hard')">Hard</button>
+    </div>
+</div>
+
+<div id="game" class="screen">
+    <h2 id="welcome"></h2>
+
+    <div class="score">
+        <span id="playerScore">0</span> - <span id="computerScore">0</span>
+    </div>
+
+    <div id="board"></div>
+
+    <p id="status"></p>
+
+    <div class="buttons">
+        <button onclick="restartGame()">Restart</button>
+        <button onclick="goBack()">⬅ Back</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
