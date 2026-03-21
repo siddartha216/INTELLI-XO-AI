@@ -1,0 +1,183 @@
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+
+    background: linear-gradient(270deg, #667eea, #764ba2, #ff758c, #42e695);
+    background-size: 600% 600%;
+    animation: gradientMove 10s ease infinite;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* 🌈 Background Animation */
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* 💎 Glass Effect */
+.screen {
+    display: none;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+
+    padding: 30px;
+    border-radius: 20px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+
+    animation: fadeIn 0.6s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* ✨ Fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+
+    animation: glow 2s infinite alternate;
+}
+
+/* 🌟 Title Glow */
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px #00ffd5, 0 0 40px #00ffd5; }
+}
+
+input {
+    padding: 12px;
+    width: 220px;
+    border-radius: 12px;
+    border: none;
+    margin-bottom: 20px;
+    font-size: 16px;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+input:focus {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ffd5;
+}
+
+/* 🎮 Buttons */
+.buttons button {
+    margin: 5px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.buttons button:hover {
+    transform: scale(1.15) rotate(2deg);
+    background: rgba(255,255,255,0.4);
+    box-shadow: 0 0 15px #fff;
+}
+
+/* 🧩 Board */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+    gap: 12px;
+    margin: 20px auto;
+}
+
+/* 🔳 Cells */
+.cell {
+    width: 110px;
+    height: 110px;
+    font-size: 40px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+
+    transition: 0.25s;
+
+    animation: popIn 0.3s ease;
+}
+
+/* 💥 Cell appear animation */
+@keyframes popIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cell:hover {
+    transform: scale(1.1) rotate(2deg);
+    background: rgba(255,255,255,0.4);
+}
+
+/* 🟢 Winning cells animation */
+.cell.win {
+    background: #00ffd5 !important;
+    color: black;
+
+    box-shadow: 0 0 20px #00ffd5;
+
+    animation: winPulse 0.6s infinite alternate;
+}
+
+@keyframes winPulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.15);
+    }
+}
+
+/* 📊 Score */
+.score {
+    font-size: 1.8rem;
+    margin: 10px;
+
+    animation: fadeIn 1s ease;
+}
+
+/* 📢 Status text */
+#status {
+    font-size: 1.5rem;
+    margin: 10px;
+
+    animation: fadeIn 0.8s ease;
+}
