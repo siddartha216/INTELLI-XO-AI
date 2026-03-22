@@ -129,6 +129,13 @@ input:focus {
 
     animation: popIn 0.3s ease;
 }
+.difficulty-text {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #555;
+    text-align: center;
+    letter-spacing: 1px;
+}
 
 /* 💥 Cell appear animation */
 @keyframes popIn {
