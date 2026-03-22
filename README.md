@@ -29,6 +29,6 @@ It allows users to play against a computer with different difficulty levels usin
 ---
 
 ## 📂 Project Structure
-index.html 
-style.css
-script.js
+- index.html 
+- style.css
+- script.js
