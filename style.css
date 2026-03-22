@@ -20,51 +20,67 @@ body {
     100% {background-position: 0% 50%;}
 }
 
-/* 💎 Glass Effect */
+/* 💎 Glass Card */
 .screen {
     display: none;
     text-align: center;
 
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
 
-    padding: 30px;
+    padding: 35px;
     border-radius: 20px;
 
-    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
 
-    animation: fadeIn 0.6s ease;
+    animation: fadeIn 0.5s ease;
 }
 
 .screen.active {
     display: block;
 }
 
-/* ✨ Fade animation */
+/* ✨ Fade */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px) scale(0.95);
+        transform: translateY(15px);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
 }
 
+/* 🌟 Title */
 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: white;
 
-    animation: glow 2s infinite alternate;
+    text-shadow:
+        0 0 5px #00ffd5,
+        0 0 10px #00ffd5,
+        0 0 20px #00ffd5;
+
+    animation: neonPulse 2s infinite alternate;
 }
 
-/* 🌟 Title Glow */
-@keyframes glow {
-    from { text-shadow: 0 0 10px #fff; }
-    to { text-shadow: 0 0 25px #00ffd5, 0 0 40px #00ffd5; }
+@keyframes neonPulse {
+    from {
+        text-shadow:
+            0 0 5px #00ffd5,
+            0 0 10px #00ffd5,
+            0 0 20px #00ffd5;
+    }
+    to {
+        text-shadow:
+            0 0 10px #00ffd5,
+            0 0 25px #00ffd5,
+            0 0 50px rgba(0,255,213,0.8);
+    }
 }
-
+/* ✍ Input */
 input {
     padding: 12px;
     width: 220px;
@@ -79,12 +95,20 @@ input {
 
 input:focus {
     transform: scale(1.05);
-    box-shadow: 0 0 15px #00ffd5;
+    box-shadow: 0 0 10px #00ffd5;
+}
+
+/* 🔤 Difficulty Text (FIXED VISIBILITY) */
+.difficulty-text {
+    font-size: 18px;
+    margin: 12px 0;
+    color: #ffffff; /* FIXED */
+    letter-spacing: 1px;
 }
 
 /* 🎮 Buttons */
 .buttons button {
-    margin: 5px;
+    margin: 6px;
     padding: 12px 22px;
     border-radius: 12px;
     border: none;
@@ -96,13 +120,12 @@ input:focus {
     color: white;
     font-weight: bold;
 
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
 .buttons button:hover {
-    transform: scale(1.15) rotate(2deg);
-    background: rgba(255,255,255,0.4);
-    box-shadow: 0 0 15px #fff;
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.35);
 }
 
 /* 🧩 Board */
@@ -118,73 +141,37 @@ input:focus {
     width: 110px;
     height: 110px;
     font-size: 40px;
-    border-radius: 18px;
+    border-radius: 16px;
     border: none;
     cursor: pointer;
 
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(10px);
 
-    transition: 0.25s;
-
-    animation: popIn 0.3s ease;
-}
-.difficulty-text {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #555;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-/* 💥 Cell appear animation */
-@keyframes popIn {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    transition: 0.2s;
 }
 
 .cell:hover {
-    transform: scale(1.1) rotate(2deg);
-    background: rgba(255,255,255,0.4);
+    transform: scale(1.08);
+    background: rgba(255,255,255,0.3);
 }
 
-/* 🟢 Winning cells animation */
+/* 🟢 Win */
 .cell.win {
     background: #00ffd5 !important;
     color: black;
 
-    box-shadow: 0 0 20px #00ffd5;
-
-    animation: winPulse 0.6s infinite alternate;
-}
-
-@keyframes winPulse {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1.15);
-    }
+    box-shadow: 0 0 15px #00ffd5;
 }
 
 /* 📊 Score */
 .score {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin: 10px;
-
-    animation: fadeIn 1s ease;
 }
 
-/* 📢 Status text */
+/* 📢 Status */
 #status {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin: 10px;
-
-    animation: fadeIn 0.8s ease;
 }
